@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/common/components/app.dart';
-import 'package:flutter_boilerplate/common/constant.dart';
+import 'package:flutter_boilerplate/components/app.dart';
+import 'package:flutter_boilerplate/constant.dart';
+import 'package:flutter_boilerplate/routes.dart';
 import 'package:flutter_boilerplate/state/store.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-void main() => runApp(FlutterApp());
+void main(){
+  // initialize router
+  router = newRouter();
+
+  runApp(FlutterApp());
+}
 
 class FlutterApp extends StatelessWidget {
   @override
@@ -16,7 +22,7 @@ class FlutterApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blueGrey,
         ),
-        home: app,
+        home: app
       ),
     );
   }

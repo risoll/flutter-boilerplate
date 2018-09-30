@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/common/constant.dart';
-import 'package:flutter_boilerplate/pages/about/about.dart';
-import 'package:flutter_boilerplate/pages/home/home.dart';
-import 'package:flutter_boilerplate/pages/inbox/inbox.dart';
+import 'package:flutter_boilerplate/constant.dart';
+import 'package:flutter_boilerplate/pages/about.dart';
+import 'package:flutter_boilerplate/pages/home.dart';
+import 'package:flutter_boilerplate/pages/inbox.dart';
 
 const app = DefaultTabController(
   length: 3,
@@ -14,15 +14,9 @@ const app = DefaultTabController(
 );
 
 const _navBody = TabBarView(children: [
-  HomePage(
-    title: '$AppName - Home',
-  ),
-  InboxPage(
-    title: '$AppName - Inbox',
-  ),
-  AboutPage(
-    title: '$AppName - About',
-  ),
+  HomePage(title: '$AppName - Home'),
+  InboxPage(title: '$AppName - Inbox'),
+  AboutPage(title: '$AppName - About'),
 ]);
 
 const _bottomNavBody = TabBar(

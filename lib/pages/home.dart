@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/pages/home/counter_display.dart';
-import 'package:flutter_boilerplate/pages/home/increment_button.dart';
+import 'package:flutter_boilerplate/routes.dart';
+import 'package:flutter_boilerplate/state/actions.dart';
+import 'package:flutter_boilerplate/state/state.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key, this.title}) : super(key: key);
+  const HomePage({Key key, this.title = 'Home'}) : super(key: key);
 
   final String title;
 
@@ -32,11 +34,39 @@ class _HomePageState extends State<HomePage>
               'You have pushed the button this many times:',
             ),
             counterDisplay(context),
+            navigateButton(context, routeInbox)
           ],
         ),
       ),
-      flatButton: ,
       floatingActionButton: incrementButton,
     );
   }
 }
+
+FlatButton navigateButton(BuildContext context, String path) => FlatButton(
+      onPressed: () => navigateToAsync(context, path),
+      child: Text('Goto $path'),
+    );
+
+typedef IncrementCounter = void Function();
+final incrementButton = StoreConnector<AppState, IncrementCounter>(
+  converter: (store) => () => store.dispatch(IncrementAction),
+  builder: (_, incrementCallback) {
+    return FloatingActionButton(
+      onPressed: incrementCallback,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+    );
+  },
+);
+
+StoreConnector<AppState, int> counterDisplay(BuildContext context) =>
+    StoreConnector<AppState, int>(
+      converter: (store) => store.state.counter,
+      builder: (_, counter) {
+        return Text(
+          '$counter',
+          style: Theme.of(context).textTheme.display1,
+        );
+      },
+    );

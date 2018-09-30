@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
-  const AboutPage({Key key, this.title}) : super(key: key);
+  const AboutPage({Key key, this.title = 'About'}) : super(key: key);
 
   final String title;
 
