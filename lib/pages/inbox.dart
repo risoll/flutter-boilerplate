@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/pages/inbox/components/get_ip_address_button.dart';
-import 'package:flutter_boilerplate/pages/inbox/components/ip_address_display.dart';
+import 'package:flutter_boilerplate/pages/inbox/get_ip_address_button.dart';
+import 'package:flutter_boilerplate/pages/inbox/ip_address_display.dart';
 
 class InboxPage extends StatefulWidget {
   const InboxPage({Key key, this.title}) : super(key: key);

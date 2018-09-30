@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/pages/home/components/counter_display.dart';
-import 'package:flutter_boilerplate/pages/home/components/increment_button.dart';
+import 'package:flutter_boilerplate/pages/home/counter_display.dart';
+import 'package:flutter_boilerplate/pages/home/increment_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key, this.title}) : super(key: key);
@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage>
           ],
         ),
       ),
+      flatButton: ,
       floatingActionButton: incrementButton,
     );
   }
